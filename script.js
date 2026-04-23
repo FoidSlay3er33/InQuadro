@@ -1,38 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const screens = document.querySelectorAll(".screen");
-    const navButtons = document.querySelectorAll(".top-nav button, .bottom-nav button");
+const buttons = document.querySelectorAll(".bottom-nav button");
+const screens = document.querySelectorAll(".screen");
 
-    function showScreen(targetId) {
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const target = button.dataset.target;
+
+        // 🔴 NASCONDE TUTTE LE SCHERMATE
         screens.forEach(screen => {
-            screen.classList.remove("active");
+            screen.style.display = "none";
         });
 
-        const targetScreen = document.getElementById(targetId);
-        if (targetScreen) {
-            targetScreen.classList.add("active");
-        }
+        // 🟢 MOSTRA SOLO QUELLA GIUSTA
+        document.getElementById(target).style.display = "block";
 
-        navButtons.forEach(btn => {
+        // 🔴 RESET BOTTONI
+        buttons.forEach(btn => {
             btn.classList.remove("active");
-            if (btn.dataset.target === targetId) {
-                btn.classList.add("active");
-            }
         });
-    }
 
-    navButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            showScreen(button.dataset.target);
-        });
+        // 🟢 ATTIVA QUELLO CLICCATO
+        button.classList.add("active");
+
     });
 
-    const contactForm = document.getElementById("contact-form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            alert("Richiesta inviata!");
-        });
-    }
-
-    showScreen("home");
 });
