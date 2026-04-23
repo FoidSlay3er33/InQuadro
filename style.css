@@ -186,59 +186,69 @@ button:active {
 @media(min-width: 768px) {
 
     body {
-        background: #f0f0f0;
+        background: #eaeaea;
     }
 
-    /* MOSTRA NAVBAR TOP */
+    /* NASCONDI NAVBAR TOP (non ci serve più) */
     .top-nav {
-        display: flex;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        justify-content: center;
-        gap: 40px;
-        padding: 20px;
-        background: white;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 100;
-    }
-
-    .top-nav button {
-        background: none;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-        color: #666;
-        transition: 0.3s;
-    }
-
-    .top-nav button:hover {
-        color: black;
-    }
-
-    .top-nav button.active {
-        font-weight: bold;
-        color: black;
-    }
-
-    /* NASCONDI NAVBAR MOBILE */
-    .bottom-nav {
         display: none;
     }
 
-    /* LAYOUT PIÙ LARGO */
+    /* NAVBAR BOTTOM VERSIONE DESKTOP */
+    .bottom-nav {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 25px;
+        padding: 15px 25px;
+        border-radius: 50px;
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    /* BOTTONI PIÙ GRANDI */
+    .bottom-nav button {
+        width: 80px;
+        height: 80px;
+        background: #f2f2f2;
+        transition: all 0.3s ease;
+    }
+
+    .bottom-nav span {
+        font-size: 26px;
+    }
+
+    .bottom-nav small {
+        font-size: 11px;
+    }
+
+    /* HOVER DESKTOP FIGO */
+    .bottom-nav button:hover {
+        transform: translateY(-8px) scale(1.05);
+    }
+
+    /* ATTIVO */
+    .bottom-nav button.active {
+        background: black;
+        color: white;
+    }
+
+    /* CONTENUTO PIÙ LARGO */
     .screen {
         width: 100%;
-        max-width: 1000px;
-        margin: 80px auto;
+        max-width: 1100px;
+        margin: 60px auto 120px;
         background: white;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        padding: 80px 60px 120px;
+        border-radius: 25px;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+        padding: 80px 80px 120px;
     }
 
     .video-container iframe {
-        height: 350px;
+        height: 400px;
     }
 }
 
@@ -263,4 +273,8 @@ button:active {
     .video-container {
         flex: 1;
     }
+}
+
+.Nactive{
+    display: none;
 }
