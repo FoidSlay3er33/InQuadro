@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div class="top-nav">
+    <button data-target="home" class="active">Home</button>
+    <button data-target="video">Video</button>
+    <button data-target="contatti">Contatti</button>
+</div>
 <!-- SCHERMATE -->
 <div class="screen active" id="home">
     <img src="image.jpeg" alt="none" height="100px">
@@ -50,17 +54,17 @@
 
 <!-- NAVBAR BOTTOM -->
 <div class="bottom-nav">
-    <button onclick="showScreen('home')" class="active">
+    <button data-target="home" class="active">
         <span>🏠</span>
         <small>Home</small>
     </button>
 
-    <button onclick="showScreen('video')">
+    <button data-target="video">
         <span>▶️</span>
         <small>Video</small>
     </button>
 
-    <button onclick="showScreen('contatti')">
+    <button data-target="contatti">
         <span>✉️</span>
         <small>Contatti</small>
     </button>
