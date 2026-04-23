@@ -90,7 +90,7 @@ input:focus, textarea:focus {
     border-color: black;
 }
 
-/* BOTTONI */
+/* BOTTONI GENERALI */
 button {
     padding: 14px;
     border-radius: 12px;
@@ -111,7 +111,10 @@ button:active {
     transform: scale(0.95);
 }
 
-/* NAVBAR BOTTOM */
+/* ========================= */
+/* 📱 NAVBAR MOBILE (BOTTOM) */
+/* ========================= */
+
 .bottom-nav {
     position: fixed;
     bottom: 15px;
@@ -124,9 +127,9 @@ button:active {
     border-radius: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
-/* BOTTONI */
 .bottom-nav button {
     display: flex;
     flex-direction: column;
@@ -168,32 +171,96 @@ button:active {
     color: white;
 }
 
-/* DESKTOP */
+/* ========================= */
+/* 💻 NAVBAR DESKTOP (TOP) */
+/* ========================= */
+
+.top-nav {
+    display: none;
+}
+
+/* ========================= */
+/* 💻 DESKTOP STYLE */
+/* ========================= */
+
 @media(min-width: 768px) {
 
     body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #eaeaea;
+        background: #f0f0f0;
     }
 
+    /* MOSTRA NAVBAR TOP */
+    .top-nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 40px;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    .top-nav button {
+        background: none;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        color: #666;
+        transition: 0.3s;
+    }
+
+    .top-nav button:hover {
+        color: black;
+    }
+
+    .top-nav button.active {
+        font-weight: bold;
+        color: black;
+    }
+
+    /* NASCONDI NAVBAR MOBILE */
+    .bottom-nav {
+        display: none;
+    }
+
+    /* LAYOUT PIÙ LARGO */
     .screen {
-        max-width: 500px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 80px auto;
         background: white;
         border-radius: 20px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        padding: 80px 40px 120px;
-    }
-
-    .bottom-nav {
-        width: 500px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 0 0 20px 20px;
+        padding: 80px 60px 120px;
     }
 
     .video-container iframe {
-        height: 300px;
+        height: 350px;
+    }
+}
+
+/* ========================= */
+/* 💥 EXTRA FIGO DESKTOP */
+/* ========================= */
+
+@media(min-width: 900px) {
+
+    #video {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        gap: 40px;
+    }
+
+    #video p {
+        flex: 1;
+    }
+
+    .video-container {
+        flex: 1;
     }
 }
